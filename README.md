@@ -2,6 +2,7 @@
 Freebasic versión de la Demo Juggler Commodore Amiga 500
 
 Version eb Basic FreeBasic de la famosa demo de Commodore Amiga 500, llamada "Juggler".
+
 Gracias a la información extraída de http://www.etwright.org/cghist/juggler_rt.html
 
 
