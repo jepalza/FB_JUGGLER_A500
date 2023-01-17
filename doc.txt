@@ -1,0 +1,110 @@
+To build sphere-based worlds, I have adapted Eric Graham's original format (Copyright 1987) from his .DAT files to a more user-friendly .TXT format.
+Basically it's the same, but organised and commented, with separator headers, which are missing in the original file and make it difficult to understand.
+A documented example is given below.
+The coordinates are enclosed in "()", the RGB colours (values 0 to 1) are enclosed in "<>" and the radius of the sphere is preceded by ":".
+To create repetitions of a sphere in linear form, we place the number of interactions in front of the coordinate, followed by the first sphere, and thus create a line of decremental, incremental or fixed spheres, with fixed or variable diameter. The colour remains the same.
+
+There are three types of spheres: 
+DULL=0, BRIGHT=1 and MIRROR=2 (0=solid matt, 1=bright, 2=reflects the environment).
+Composition for each sphere (ball) is like:
+<COLOR_RGB> SPHERE_TYPE (COORDINATES_XYZ):RADIUS
+
+Translated with www.DeepL.com/Translator (free version)
+----------------------------------------------------------------------------------------------
+
+
+Para construir mundos a base de esferas, he adaptado el formato original de Eric Graham (Copyright 1987) de sus ficheros .DAT a un formato mas amigable en .TXT.
+Basicamente es lo mismo, pero organizado y comentado, con cabeceras de separacion, que en el fichero original no vienen y lo hace dificil de entender.
+Un ejemplo documentado viene a continuacion.
+Las coordenadas van encerradas entre "()", los colores RGB (valores 0 a 1) van entre "<>" y el radio de la esfera va precedido de ":"
+Para crear repeticiones de una esfera en forma lineal, colocamos el numero de interacciones delante de la coordenada, seguido de la primera esfera, y de ese modo se crea una linea de esferas decrementales, incrementales o fijas, con diametro fijo o variable. El color permanece el mismo.
+
+Existen tres tipos de esferas: 
+DULL=0, BRIGHT=1 y MIRROR=2 (0=solida mate, 1=brillante, 2=refleja el entorno)
+La composición de cada esfera (bola) es como:
+<COLOR_RGB> ESFERA_TIPO (COORDENADAS_XYZ):RADIO
+
+
+
+-----------------------------------------------------------------------------------------------
+Ejemplos:
+single ball color R0.9 G0.9 B0.9 type 2(MIRROR) center XYZ -0.9,-2.1,5.3 radius 0.6
+<0.9,0.9,0.9> 2  (-0.9,-2.1,5.3):0.6
+
+one line of decremental spheres
+<1,.1,.1>  1  (0,0,4.6):0.8 --> initial sphere color .1,.1,.1 origin 0,0,4.6 radius 0.8
+ #5 (0,0,3.3):0.6  --> FIVE(#5) decremental spheres from original one to final position 0,0,3.3 and final radius 0.6
+
+two lines od decremental spheres
+<1,.7,.7>  1  (0,0.6,2.9):0.2 --> initial
+ #6 (-0.6,0.6,1.6):0.2  --> first line with 6 elements from initial sphere above
+ #7 (-0.4,0.6,0):0.1  --> secondary line with 7 elements from final of above sphere
+
+
+
+
+This is JUGGLER DEMO from Amiga 500
+-----------------------------------
+[RESOLUTION]
+640,480 ; screen resolution
+
+[OBSERVER]
+-10,-4,5.5 ; xyz
+
+[ALTITUDE]
+-10 ; angle in degrees
+
+[AZIMUT]
+20 ; angle in degrees
+
+[FOCAL]
+35 ; factor of view
+
+[LIGHTS]
+(-100,50,150):15 <1,1,1> ; one or more lights: (XYZ):RADIUS <COLOR>
+
+[TILES]
+(0.,0.,0.) (0.,0.,1.) <1.5,1.5,0.0>  ; TWO tiles: position (XYZ) normal (UVW) and <COLOR>
+(0.,0.,0.) (0.,0.,1.) <0.0,1.5,0.0>  ; if both colors are same value, floor is solid, no chess
+
+[AMBIENT]
+<.25,.25,.25> <0.1,0.1,1.0> <0.7,0.7,1.0> ; ambient color + sky zenith color + sky horizon color
+
+[SCENE]
+; three crystal spheres
+<.9,.9,.9> 2  (-0.9,-2.1,5.3):0.6
+<.9,.9,.9> 2  (-1.1,1.9,5.9):0.6
+<.9,.9,.9> 2  (-0.4,-1.2,6.8):0.6
+
+; head
+<1,.7,.7>  1  (0,0,6.1):0.5 
+<.2,.1,.1> 1  (0.02,0,6.12):0.5 ; hair
+<.1,.1,1.> 1  (-0.4,0.2,6.1):0.15 ; right eye
+<.1,.1,1.> 1  (-0.4,-0.2,6.1):0.15 ; left eye
+
+; neck
+<1,.7,.7>  1  (0,0,5.5):0.2
+
+; body
+<1,.1,.1>  1  (0,0,4.6):0.8 
+ #5 (0,0,3.3):0.6
+ 
+;right leg 
+<1,.7,.7>  1  (0,0.6,2.9):0.2 
+ #6 (-0.6,0.6,1.6):0.2
+ #7 (-0.4,0.6,0):0.1
+			 
+; left leg			 
+<1,.7,.7>  1  (0,-0.6,2.9):0.2 
+ #6 (0.2,-0.6,1.6):0.2
+ #7 (0.4,-0.6,0):0.1
+
+; right arm				  
+<1,.7,.7>  1  (0,-0.7,5.1):0.2 
+ #6 (-0.2,-1.2,4.2):0.2
+ #7 (-1.1,-2.0,4.1):0.1
+
+; left arm				  
+<1,.7,.7>  1  (0,0.7,5.1):0.2 
+ #6 (-0.2,1.2,4.2):0.2
+ #7 (-1.0,1.9,4.8):0.1

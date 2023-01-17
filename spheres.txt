@@ -1,0 +1,29 @@
+[RESOLUTION]
+640,480 ; screen resolution
+
+[OBSERVER]
+-10,-4,5.5 ; xyz
+
+[ALTITUDE]
+-10 ; angle in degrees
+
+[AZIMUT]
+20 ; angle in degrees
+
+[FOCAL]
+35 ; factor of view
+
+[LIGHTS]
+(-100,-100,100):10 <1,1,1> ; one or more lights: (XYZ):RADIUS <COLOR>
+
+[TILES]
+(0.,0.,0.) (0.,0.,1.) <1.,0.0,0.0>  ; TWO tiles: position (XYZ) normal (UVW) and <COLOR>
+(0.,0.,0.) (0.,0.,1.) <0.0,1.,0.0>  ; if both colors are same value, floor is solid, no chess
+
+[AMBIENT]
+<.3,.3,.3> <0.1,0.1,1.0> <0.2,0.2,0.4> ; ambient color + sky zenith color + sky horizon color
+
+[SCENE]
+<0.7,1.0,0.7> 0  (0,-4,4):1
+<0.7,0.7,1.0> 1  (0,5,4):1
+<1.0,0.7,0.7> 2  (0,0,4):3

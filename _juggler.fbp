@@ -1,0 +1,42 @@
+[Project]
+Version=3
+Description=Juggler From Amiga 500
+Api=fb (FreeBASIC),gdip (Gdi+),ogl (OpenGL),sv (Showvars),win (Windows)
+DefApi=fb (FreeBASIC),gdip (Gdi+),ogl (OpenGL),sv (Showvars),win (Windows)
+Grouping=1
+AddMainFiles=1
+AddModuleFiles=1
+ResExport=
+CompileIfNewer=0
+IncVersion=0
+RunCmd=0
+[Make]
+Module=Module Build,fbc -c
+Recompile=2
+Current=1
+1=Windows Console,fbc -s console
+2=Windows GUI,fbc -s gui
+Output=
+Run=
+Delete=
+[TabOrder]
+CurrentTab=1
+TabOrder=1,2,3,4
+[File]
+Main=1
+1=rt1.bas
+2=rt2.bas
+3=defs.bi
+4=world.bi
+[BreakPoint]
+1=
+2=
+3=
+4=
+[FileInfo]
+1=0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+2=0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+3=0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+4=0,283,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+
